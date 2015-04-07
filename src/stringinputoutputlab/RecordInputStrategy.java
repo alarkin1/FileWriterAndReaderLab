@@ -5,16 +5,13 @@
  */
 package stringinputoutputlab;
 
+import java.io.*;
 import java.util.List;
 
 /**
  *
  * @author Alex
  */
-public interface OutputStrategy {
-    
-    public abstract void outputFormattedRecords(List<Record> arrayOfRecords, RecordFormatterStrategy recordForamtter);
-    
-    public abstract void outputFormattedRecord(Record records, RecordFormatterStrategy recordForamtter);
-    
+public interface RecordInputStrategy {
+    public abstract List<Record> retrieveRecords() throws IOException;
 }

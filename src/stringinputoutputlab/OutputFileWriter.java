@@ -31,8 +31,20 @@ public class OutputFileWriter implements OutputStrategy {
             }
             outputMechanism.close();
         } catch (IOException ioe) {
-            //print out error message to the appropriate place
-            System.out.println(ioe.getMessage() + "HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            //print out error message in the appropriate manner
+            System.out.println(ioe.getMessage());
+        }
+    }
+
+    @Override
+    public void outputFormattedRecord(Record record, RecordFormatterStrategy recordFormatter) {
+        try {
+            PrintWriter outputMechanism = new PrintWriter(new BufferedWriter(new FileWriter(outputFile, append)));
+            outputMechanism.append(recordFormatter.formatRecordAndReturnFormattedRecordStr(record) + "\n\n");
+            outputMechanism.close();
+        } catch (IOException ioe) {
+            //print out error message in the appropriate manner
+            System.out.println(ioe.getMessage());
         }
     }
 

@@ -18,51 +18,54 @@ public class Record {
     private String address;
     private String zip;
 
-    public String getFirstName() {
+    
+    //Methods need validation
+    
+    public final String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public final void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public final String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public final void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getState() {
+    public final String getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public final void setState(String state) {
         this.state = state;
     }
 
-    public String getCity() {
+    public final String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public final void setCity(String city) {
         this.city = city;
     }
 
-    public String getAddress() {
+    public final String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public final void setAddress(String address) {
         this.address = address;
     }
 
-    public String getZip() {
+    public final String getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public final void setZip(String zip) {
         this.zip = zip;
     }
 

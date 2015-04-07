@@ -19,12 +19,14 @@ public class StringInputOutputLab {
     public static void main(String[] args) {
         File file = new File(File.separatorChar + "Temp" + File.separatorChar + "contacts.txt");
         File outputFile = new File(File.separatorChar + "Temp" + File.separatorChar + "contacts2.txt");
-        TextFileRecordParser newTextFileReader = new TextFileRecordParser();
+        RecordInputStrategy newTextFileRecordParser = new RecordInputTextFile(file);
         try {
             OutputStrategy recordOutputter = new OutputConsole();
-            recordOutputter.outputFormattedRecords(newTextFileReader.readTextFile(file), new RecordFormatterUserFriendly());
+            recordOutputter.outputFormattedRecords(newTextFileRecordParser.retrieveRecords(), new RecordFormatterUserFriendly());
             recordOutputter = new OutputFileWriter(true, outputFile);
-            recordOutputter.outputFormattedRecords(newTextFileReader.readTextFile(file), new RecordFormatterUserFriendly());
+            recordOutputter.outputFormattedRecords(newTextFileRecordParser.retrieveRecords(), new RecordFormatterUserFriendly());
+            recordOutputter = new OutputConsole();
+            recordOutputter.outputFormattedRecords(newTextFileRecordParser.retrieveRecords(), new RecordFormatterUserFriendly());
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }

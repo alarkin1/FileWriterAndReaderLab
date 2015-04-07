@@ -20,4 +20,9 @@ public class OutputConsole implements OutputStrategy {
         }
     }
 
+    @Override
+    public void outputFormattedRecord(Record record, RecordFormatterStrategy recordForamtter) {
+        System.out.println(recordForamtter.formatRecordAndReturnFormattedRecordStr(record) + "\n\n");
+    }
+
 }

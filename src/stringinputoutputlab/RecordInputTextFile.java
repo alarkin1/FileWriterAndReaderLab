@@ -12,10 +12,18 @@ import java.util.List;
 /**
  * @author Alex
  */
-public class TextFileRecordParser {
+public class RecordInputTextFile implements RecordInputStrategy {
 
-    public final List<Record> readTextFile(File file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+    File inputFile;
+
+    public RecordInputTextFile(File inputFile) {
+        if (inputFile != null) {
+            this.inputFile = inputFile;
+        }
+    }
+
+    public final List<Record> retrieveRecords() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));
         String line = bufferedReader.readLine();
         List<Record> listOfRecords = new ArrayList<>();
         while (line != null) {
@@ -45,6 +53,16 @@ public class TextFileRecordParser {
             line = bufferedReader.readLine();
         }
         return listOfRecords;
+    }
+
+    public final File getInputFile() {
+        return inputFile;
+    }
+
+    public final void setInputFile(File inputFile) {
+        if (inputFile != null) {
+            this.inputFile = inputFile;
+        }
     }
 
 }
